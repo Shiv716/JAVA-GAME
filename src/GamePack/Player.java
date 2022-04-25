@@ -13,8 +13,6 @@ public class Player extends GameObject{
     public Player(int x, int y, ID id , Handler handler) {
         super(x, y, id);
         this.handler = handler;
-//        velX = r.nextInt(5)+1;
-//        velY = r.nextInt(5);
     }
 
     @Override
@@ -24,15 +22,16 @@ public class Player extends GameObject{
 
         x= Game.clamp(x,0,Game.WIDTH-37);
         y= Game.clamp(y,0,Game.HEIGHT-60);
+
+        handler.addObject(new Trail(x,y,ID.Trail,handler,Color.white,32,32,0.05f));
+
+        collision();
     }
 
     @Override
     public void render(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-
         g.setColor(Color.white);
         g.fill3DRect(x,y , 32,32,true);
-
 
     }
 
@@ -43,8 +42,9 @@ public class Player extends GameObject{
 
     private void collision(){
         for(int i = 0 ; i< handler.object.size();i++){
+            // temp-object is now referenced as basic enemy or Fast Enemy.
             GameObject tempObject = handler.object.get(i);
-            if(tempObject.getID()==ID.BasicEnemy){
+            if(tempObject.getID()==ID.BasicEnemy || tempObject.getID()==ID.FastEnemy){
                 if(getBounds().intersects(tempObject.getBounds())) {
                     //collision code
                     HUD.HEALTH-=2;
