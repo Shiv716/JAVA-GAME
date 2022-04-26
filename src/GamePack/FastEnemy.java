@@ -6,15 +6,11 @@ public class FastEnemy extends GameObject {
 
     private Handler handler;
 
-    public FastEnemy(int x, int y, ID id , Handler handler) {
+    public FastEnemy(float x, float y, ID id , Handler handler) {
         super(x, y, id);
         this.handler = handler;
         velX = 2;
         velY = 9;
-    }
-
-    public FastEnemy(int x, int y, ID id) {
-        super(x, y, id);
     }
 
     @Override

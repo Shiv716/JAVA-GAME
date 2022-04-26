@@ -6,7 +6,7 @@ public class BasicEnemy extends GameObject {
 
     private Handler handler;
 
-    public BasicEnemy(int x, int y, ID id , Handler handler) {
+    public BasicEnemy(float x, float y, ID id , Handler handler) {
         super(x, y, id);
         this.handler = handler;
         velX = 5;

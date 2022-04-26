@@ -10,7 +10,7 @@ public class Player extends GameObject{
 
     Handler handler;
 
-    public Player(int x, int y, ID id , Handler handler) {
+    public Player(float x, float y, ID id , Handler handler) {
         super(x, y, id);
         this.handler = handler;
     }
@@ -44,7 +44,7 @@ public class Player extends GameObject{
         for(int i = 0 ; i< handler.object.size();i++){
             // temp-object is now referenced as enemies.
             GameObject tempObject = handler.object.get(i);
-            if(tempObject.getID()==ID.BasicEnemy || tempObject.getID()==ID.FastEnemy || tempObject.getID()==ID.SmartEnemy)
+            if(tempObject.getID()==ID.BasicEnemy || tempObject.getID()==ID.FastEnemy || tempObject.getID()==ID.SmartEnemy || tempObject.getID()==ID.EnemyBoss)
             {
                 if(getBounds().intersects(tempObject.getBounds())) {
                     //collision code

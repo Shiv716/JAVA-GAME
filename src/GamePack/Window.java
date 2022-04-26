@@ -6,12 +6,12 @@ import java.awt.*;
 public class Window extends Canvas {
     private static final long serialVersionUID = -240840600533728354L;
 
-    public Window (int width , int height , String title , Game game){
+    public Window (float width , float height , String title , Game game){
         JFrame frame = new JFrame(title);
 
-        frame.setPreferredSize(new Dimension(width , height));
-        frame.setMaximumSize(new Dimension(width , height));
-        frame.setMinimumSize(new Dimension(width , height));
+        frame.setPreferredSize(new Dimension((int)width , (int)height));
+        frame.setMaximumSize(new Dimension((int)width ,(int) height));
+        frame.setMinimumSize(new Dimension((int)width , (int)height));
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);

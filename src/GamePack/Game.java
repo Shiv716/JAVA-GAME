@@ -8,7 +8,7 @@ public class Game extends Canvas implements  Runnable{
 
     private static final long serialVersionUID = 1550691097823471818L;
 
-    public static final int WIDTH = 640 , HEIGHT = WIDTH /12 * 9;
+    public static final float WIDTH = 640 , HEIGHT = WIDTH /12 * 9;
     private Thread thread;
     private boolean running = false;
 
@@ -23,13 +23,13 @@ public class Game extends Canvas implements  Runnable{
     public Game(){
         handler = new Handler();
         this.addKeyListener(new KeyInput(handler));
-        new Window(WIDTH , HEIGHT , "Building a game baby! " , this);
+        new Window((int)WIDTH ,(int) HEIGHT , "Building a game baby! " , this);
 
         hud = new HUD();
         spawner = new Spawn(handler, hud);
         r = new Random();
-        handler.addObject(new Player(r.nextInt(WIDTH/2-32),r.nextInt(HEIGHT/2-32), ID.Player,handler));
-        handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH),r.nextInt(Game.HEIGHT),ID.BasicEnemy,handler));
+        handler.addObject(new Player(r.nextInt((int)WIDTH/2-32),r.nextInt((int)HEIGHT/2-32), ID.Player,handler));
+        handler.addObject(new BasicEnemy(r.nextInt((int)WIDTH/2-32),r.nextInt((int)HEIGHT/2-32), ID.BasicEnemy,handler));
     }
 
     public synchronized void start(){
@@ -93,7 +93,7 @@ public class Game extends Canvas implements  Runnable{
 
         Graphics g = bs.getDrawGraphics();
         g.setColor(Color.black);
-        g.fill3DRect(0,0 , WIDTH,HEIGHT,true);
+        g.fill3DRect(0,0 ,(int) WIDTH,(int)HEIGHT,true);
 
         handler.render(g);
         hud.render(g);
