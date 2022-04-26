@@ -3,8 +3,8 @@ package GamePack;
 import java.awt.*;
 
 public class HUD {
-    public static int HEALTH = 100 ;
-    private int greenValue= 25;
+    public static float HEALTH = 100 ;
+    private float greenValue= 255f;
 
     private int score = 0;
     private int level = 1;
@@ -38,8 +38,8 @@ public class HUD {
         g.setColor(Color.gray);
         g.fill3DRect(15,15,200,32,true);
 
-        g.setColor(new Color(75,greenValue,0));
-        g.fill3DRect(15,15,HEALTH*2,32,true);
+        g.setColor(new Color(75,(int)greenValue,0));
+        g.fill3DRect(15,15, (int) (HEALTH*2),32,true);
 
         g.setColor(Color.white);
         g.draw3DRect(15,15,200,32,true);

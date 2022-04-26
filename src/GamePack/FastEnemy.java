@@ -24,17 +24,17 @@ public class FastEnemy extends GameObject {
 
         if(y <= 0 || y >=Game.HEIGHT -32) velY*=-1;
         if(x <= 0 || x >=Game.WIDTH - 16) velX*=-1;
-        handler.addObject(new Trail(x,y,ID.Trail,handler,Color.cyan,16,16,0.02f));
+        handler.addObject(new Trail((int)x,(int)y,ID.Trail,handler,Color.cyan,16,16,0.02f));
     }
 
     @Override
     public void render(Graphics g) {
         g.setColor(Color.cyan);
-        g.fill3DRect(x,y,16,16,true);
+        g.fill3DRect((int)x,(int)y,16,16,true);
     }
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle(x,y,16,16);
+        return new Rectangle((int)x,(int)y,16,16);
     }
 }
