@@ -9,7 +9,7 @@ public class HUD {
     private int score = 0;
     private int level = 1;
 
-    public void Score (int score){
+    public void setScore (int score){
         this.score=score;
     }
 
