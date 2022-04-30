@@ -22,6 +22,8 @@ public class Game extends Canvas implements  Runnable{
 
     private Spawn spawner;
 
+    private Shop shop;
+
     public static boolean paused = false;
 
     public int diff =0;
@@ -29,7 +31,7 @@ public class Game extends Canvas implements  Runnable{
     //1=hard
 
     public enum STATE{
-        Menu , Game , Help , End , Select
+        Menu , Game , Help , End , Select , Shop
     }
 
     public static STATE gameState = STATE.Menu;
@@ -37,9 +39,11 @@ public class Game extends Canvas implements  Runnable{
     public Game(){
         handler = new Handler();
         hud = new HUD();
+        shop = new Shop(handler,hud);
         menu = new Menu(this,handler,hud);
         this.addKeyListener(new KeyInput(handler,this));
         this.addMouseListener(menu);
+        this.addMouseListener(shop);
 
         new Window((int)WIDTH ,(int) HEIGHT , "Building a game baby! " , this);
         spawner = new Spawn(handler, hud,this);
@@ -134,7 +138,6 @@ public class Game extends Canvas implements  Runnable{
         g.setColor(Color.black);
         g.fill3DRect(0,0 ,(int) WIDTH,(int)HEIGHT,true);
 
-        handler.render(g);
 
         if (paused) {
             g.setColor(Color.white);
@@ -143,8 +146,14 @@ public class Game extends Canvas implements  Runnable{
 
         if(gameState==STATE.Game){
             hud.render(g);
-        }else if(gameState==STATE.Menu || gameState==STATE.Help || gameState==STATE.End || gameState==STATE.Select){
+            handler.render(g);
+        }
+        else if(gameState==STATE.Shop){
+            shop.render(g);
+        }
+        else if(gameState==STATE.Menu || gameState==STATE.Help || gameState==STATE.End || gameState==STATE.Select){
             menu.render(g);
+            handler.render(g);
         }
 
         g.dispose();

@@ -5,6 +5,8 @@ import java.util.LinkedList;
 
 public class Handler {
 
+    public int spd=5;
+
     LinkedList<GameObject> object = new LinkedList<>();
 
     public void tick(){
