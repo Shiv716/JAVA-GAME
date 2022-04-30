@@ -141,7 +141,7 @@ public class Game extends Canvas implements  Runnable{
 
         if (paused) {
             g.setColor(Color.white);
-            g.drawString("Paused",100,100);
+            g.drawString("Paused!",280,100);
         }
 
         if(gameState==STATE.Game){

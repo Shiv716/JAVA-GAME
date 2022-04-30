@@ -47,6 +47,6 @@ public class HUD {
 
         g.drawString("Score: "+score,10,64);
         g.drawString("Level: "+level,10,80);
-        g.drawString("Space for shop: ",15,94);
+        g.drawString("SPACE-BAR for shop: ",10,97);
     }
 }

@@ -130,7 +130,7 @@ public class Menu extends MouseAdapter {
 
             g.setFont(fnt2);
             g.drawString("Use WASD for moving the player",150,200);
-            g.drawString("Click P to pause the game",150,220);
+            g.drawString("Click P to pause the game",163,220);
 
             g.setFont(fnt2);
             g.draw3DRect(210,350,200,64,true);
