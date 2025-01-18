@@ -5,4 +5,4 @@ Successfully defeating all opponents and conquering the boss crowns you as the n
 on a modern digital platform for an engaging experience.
 
 # Built on:
-- `Java 11`
+- `Java`
